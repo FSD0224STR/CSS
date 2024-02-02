@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+	<h1>Clase de CSS</h1>
+
+	<h2>Índice</h2>
+
+	<ul>
+		<li>
+			<p>Colores y textos</p>		
+			<ul>
+				<li><a href="#reglas">Reglas CSS</a></li>
+				<li><a href="#integracion">Integración CSS</a></li>
+				<li><a href="#colores">Colores</a></li>
+			</ul>
+		</li>
+		<li>
+			<p>Borders, Margins, Paddings y Modelo de caja</p>		
+			<ul>
+				<li><a href="#borders">Borders</a></li>
+				<li><a href="#margins">Margins y paddings</a></li>
+				<li><a href="#box-model">Modelo de caja</a></li>
+				<li><a href="#unidades">Unidades</a></li>
+			</ul>
+		</li>
+		<li>
+			<p>Selectores CSS</p>		
+			<ul>
+				<li><a href="#selectores">Introducción</a></li>
+				<li><a href="#descendientes">Descendientes</a></li>
+				<li><a href="#selectores-avanzados">Selectores avanzados</a></li>
+				<li><a href="#pseudo-clases">Pseudo clases y pseudo elementos</a></li>
+			</ul>
+		</li>
+		<li>
+			<p>Tipografía</p>		
+			<ul>
+				<li><a href="#tipografias">Fuentes tipográficas</a></li>
+				<li><a href="#font-family">font-family</a></li>
+			</ul>
+		</li>
+		<li>
+			<p>Shadows, Border-radius, Text-decoration</p>		
+			<ul>
+				<li><a href="#shadows">Shadows</a></li>
+				<li><a href="#border-radius">border-radius</a></li>
+				<li><a href="#text-decoration">text-decoration</a></li>
+			</ul>
+		</li>
+		<li>
+			<p>Organización de elementos</p>		
+			<ul>
+				<li><a href="#flexbox">Flexbox</a></li>
+				<li><a href="#grids">Grids CSS</a></li>
+			</ul>
+		</li>
+		<li>
+			<p>Estilos resonsive</p>		
+			<ul>
+				<li><a href="#breakpoints">Breakpoints</a></li>
+				<li><a href="#media-queries">Media Queries</a></li>
+			</ul>
+		</li>
+		<li>
+			<p>Display, position, overflow, z-index</p>		
+			<ul>
+				<li><a href="#display">Display</a></li>
+				<li><a href="#position">Position</a></li>
+				<li><a href="#overflow">Overflow</a></li>
+				<li><a href="#z-index">z-index</a></li>
+			</ul>
+		</li>
+		<li>
+			<p>Animaciones y transiciones</p>		
+			<ul>
+				<li><a href="#animaciones">Animaciones</a></li>
+				<li><a href="#transiciones">Transiciones</a></li>
+			</ul>
+		</li>
+	</ul>
+	
+
+	<h2>Colores y textos</h2>
+
+	<h3 id="reglas">REGLAS CSS</h3>
+	<div class="flexbox">
+		<div>
+			<p>Una regla CSS es un conjunto de declaraciones que aplican a un selector.</p>
+			<p>Un selector puede ser un o varios elementos HTML o una selección de elementos que tengan un atributo concreto. Ejemplo: “h1”</p>
+			<p>Una declaración se compone de una propiedad CSS y su valor. Ejemplo: “color: red”</p>
+			<p>En un documento CSS pueden existir múltiples reglas de CSS.</p>
+		</div>
+		<div class="example">
+<code>
+h1 {
+	color:red;
+	margin: 20px;
+}
+</code>
+		</div>
+	</div>
+
+	<h3 id="integracion">Integración CSS</h3>
+	<div class="flexbox">
+		<div>
+			<p>Existen 3 formas distintas de usar CSS en el HTML:</p>
+			<ol>
+				<li>
+					<p><strong>Estilos inline</strong></p>
+					<p>Las declaraciones se introducen en el mismo fichero HTML dentro de las etiquetas mediante el atributo style. Es la menos recomendada ya que hay que indicar el estilo para cada uno de los elementos.</p>
+				</li>
+				<li>
+					<p><strong>Estilos dentro de la etiqueta &lt;head&gt;</strong></p>
+					<p>Mediante la etiqueta style, podemos definir las reglas CSS para todo el documento en la cabecera del documento HTML</p>
+				</li>
+				<li>
+					<p><strong>Documento CSS enlazado</strong></p>
+					<p>Podemos enlazar uno o varios documentos HTML con un documento CSS externo que será válido para todos. Es la opción más recomendada ya que cualquier cambio de estilo aplicará a todos los HTML enlazados.</p>
+				</li>
+			</ol>
+		</div>
+		<div class="example">
+<code>
+&lt;h1 style="color:red;font-size:12px;"&gt;text&lt;/h1&gt;
+</code>
+<code>
+&lt;head&gt;
+	...
+	&lt;style&gt;
+		h1 {
+			color:red;
+			margin: 20px;
+		}
+	&lt;/style&gt;
+&lt;head&gt;
+</code>
+		</div>
+	</div>
+
+	<h3 id="colores">Colores</h3>
+	<div class="flexbox">
+		<div>
+			<ul>
+				<li>
+					<p><strong>color</strong></p>
+					<p>Define el color que queremos para el texto</p>
+				</li>
+				<li>
+					<p><strong>background-color</strong></p>
+					<p>Define el color que queremos como fondo</p>
+				</li>
+			</ul>
+			<p>Existen varias maneras de definir un color en CSS. Las más comunes son:</p>
+			<ul>
+				<li>
+					<p><strong>por nombre</strong></p>
+					<p>existen una serie de colores básicos con un nombre asignado. Ej: white, black, green, blue, red, orange, …</p>
+				</li>
+				<li>
+					<p><strong>por notación hexadecimal</strong></p>
+					<p>es un conjunto de 6 carácteres que van del 0 al 9 y de la A a la F con el símbolo de “hashtag” delante. Ej: #000000 , #238A6C, #FFFFFF</p>
+				</li>
+				<li>
+					<p><strong>por notación RGBa</strong></p>
+					<p>es un conjunto de 4 números. Los tres primeros pueden ir de 0 a 255 y indican la cantidad de rojo, verde o azul que va a tener el color. El último número es la opacidad y puede ir de 0 a 1, siendo 0 transparente y 1 opaco.</p>
+				</li>
+			</ul>
+		</div>
+		<div class="example">
+<code>
+h1 {
+	color:red;
+	background-color: green;
+}
+</code>
+<code>
+/* color rojo en las distintas notaciones */
+color: red;
+color: #FF0000;
+color: rgba(255,0,0,1);
+</code>
+			<p class="tip">Si quieres obtener un color, busca en google “color picker” y te aparecerá una paleta para obtener el valor en cualquiera de las notaciones que hemos visto</p>
+		</div>
+	</div>
+
+	<h2>Borders, Margins, Paddings y Modelo de caja</h2>
+
+	<h3 id="borders">Borders</h3>
+	<div class="flexbox">
+		<div>
+			<p>Podemos definir un marco para los elementos HTML con la propiedad “border”, que necesitará tres valores:</p>
+			<ul>
+				<li><strong>tamaño del border</strong>, habitualmente en “px”</li>
+				<li><strong>estilo del border</strong> (solid, dashed, dotted, double, groove, …)</li>
+				<li><strong>color del borde</strong></li>
+			</ul>
+			<p>Se pueden definir los valores de los borders por separado a través de las propiedades border-top, border-right, border-bottom, border-left</p>
+		</div>
+		<div class="example">
+<code>
+h1 {
+  border: 5px solid red;
+  border-top: 10px double green;
+}
+</code>
+		</div>
+	</div>
+	
+
+	<h3 id="margins">Margins y paddings</h3>
+	<div class="flexbox">
+		<div>
+			<p>Podemos definir los márgenes para los elementos HTML mediante dos propiedades:</p>
+			<ul>
+				<li><strong>margin</strong>, establece la separación entre el border del elemento y los elementos colindantes.</li>
+				<li><strong>padding</strong> establece la separación entre el border y los elementos interiores</li>
+			</ul>
+			<p>Se pueden definir los valores de los margin y padding  por separado a través de las propiedades:</p>
+			<ul>
+				<li>margin-top, margin-right, margin-bottom, margin-left</li>
+				<li>padding-top, padding-right, padding-bottom, padding-left</li>
+			</ul>
+		</div>
+		<div class="example">
+<code>
+h1 {
+      margin: 5px;
+      padding: 5px;
+      margin-top: 10px;
+      padding-top: 10px;
+   }
+</code>
+		</div>
+	</div>
+
+	<h3 id="box-model">Modelo de caja</h3>
+	<div class="flexbox">
+		<div>
+			<p>Al conjunto de margin + border + padding se le llama el modelo de caja (box model).</p>
+		</div>
+		<div class="example">
+			
+		</div>
+	</div>
+
+	<h3 id="unidades">Unidades</h3>
+	<div class="flexbox">
+		<div>
+			<p>Para definir separaciones o tamaños es habitual utilizar las siguientes unidades:</p>
+			<ul>
+				<li><strong>px:</strong> establece el tamaño mediante pixels. Debemos conocer que una pantalla de móvil tiene entre 320px y 375px de ancho por 568px y 667px de alto, y los ordenadores suelen tener entre 1280x y 1920px de ancho por 1080px de alto.</li>
+				<li><strong>em:</strong> se trata de un tamaño relativo basado en el ancho del carácter “m”. Si definimos un tamaño de 2em, estamos diciendo que la fuente es el doble de lo esperado. Si definimos 0.5em, será la mitad de lo esperado.</li>
+				<li><strong>rem:</strong> se trata de un tamaño relativo basado en el ancho del carácter “m”. Si definimos un tamaño de 2em, estamos diciendo que la fuente es el doble de lo esperado. Si definimos 0.5em, será la mitad de lo esperado.</li>
+			</ul>
+		</div>
+	</div>
+
+	<h2>Selectores CSS</h2>
+
+	<h3 id="selectores">Introducción</h3>
+	<div class="flexbox">
+		<div>
+			<p>Son los patrones para seleccionar elementos en nuestro HTML.</p>
+			<p>Lo más habitual es usar nombres de elementos, clases (class) o identificadores (id)</p>		
+		</div>
+		<div class="example">
+<code>
+&lt;div class="container" id="intro"&gt;Nuclio School&lt;div&gt;
+</code>
+<code>
+div {
+	color: red;
+}
+div.container {
+	color: green;
+}
+div#intro {
+	color: blue;
+}
+</code>
+		</div>
+	</div>
+
+	<h3 id="descendientes">Descendientes</h3>
+	<div class="flexbox">
+		<div>
+			<p>Dependiendo del patrón, podremos seleccionar solo los descendientes de un elemento concreto.</p>
+			<p>Las estructuras más habituales son:</p>
+			<ul>
+				<li><strong>selector1 selector2:</strong> todos los selector2 que se encuentran dentro de selector1</li>
+				<li><strong>selector1 > selector2:</strong> todos los selector2 que son hijos directos de selector1</li>
+				<li><strong>selector1 ~ selector2:</strong> Cualquier selector2 que se encuentra precedido de selector1</li>
+				<li><strong>selector1 + selector2:</strong> Solo el primer selector2 que se encuentra imediatamente después de selector1</li>
+			</ul>
+		</div>
+		<div class="example">
+<code>
+div ul {
+	color: red;
+}
+div > ul {
+	color: green;
+}
+div ~ ul {
+	color: blue;
+}
+div + ul {
+	color: orange;
+}
+</code>
+		</div>
+	</div>
+
+	<h3 id="selectores-avanzados">Selectores avanzados</h3>
+	<div class="flexbox">
+		<div>
+			<ul>
+				<li><strong>* :</strong> todos los elementos</li>
+				<li><strong>selector1 , selector2:</strong> todos los selector1 y selector2</li>
+				<li><strong>[atributo]:</strong> Todos los elementos que tengan este atributo</li>
+				<li><strong>[atributo=valor]:</strong> Todos los elementos que tengan este atributo con este valor</li>
+				<li><strong>[atributo~=valor]:</strong> Todos los elementos que tengan en su valor la palabra del valor indicado</li>
+				<li><strong>[atributo^=valor]:</strong> Todos los elementos que tengan este atributo y que su valor empieze por el valor indicado</li>
+				<li><strong>[atributo$=valor]:</strong> Todos los elementos que tengan este atributo y que su valor acabe por el valor indicado</li>
+				<li><strong>[atributo*=valor]:</strong> Todos los elementos que tengan este atributo y que su valor contenga el valor indicado</li>
+			</ul>
+		</div>
+	</div>
+
+	<h3 id="pseudo-clases">Pseudo clases y pseudo elementos</h3>
+	<div class="flexbox">
+		<div>
+			<h4>Pseudo clases</h4>
+			<p>Las pseudo-clases sirven para seleccionar elementos según su estado. Van precedidos del carácter “:”</p>
+			<ul>
+				<li><strong>:checked :</strong> todos los checkbox marcados</li>
+				<li><strong>:disabled :</strong> todos los inputs desactivados</li>
+				<li><strong>:enabled :</strong> todos los inputs activos</li>
+				<li><strong>:focus :</strong> el input que tiene el foco</li>
+				<li><strong>:required :</strong> todos los que son requerido</li>
+				<li><strong>:invalid :</strong> todos los inputs que tiene un valor inválido</li>
+				<li><strong>:valid :</strong> todos los inputs que tiene un valor válido</li>
+				<li><strong>:hover :</strong> todos los elementos que el ratón pase por encima</li>
+			</ul>
+			<p>Existen pseudo-clases para seleccionar un hijo concreto:</p>
+			<ul>
+				<li><strong>:first-child :</strong> El primer elemento del grupo</li>
+				<li><strong>:last-child :</strong> El último elemento del grupo</li>
+				<li><strong>:nth-child(n) :</strong> El elemento que responde a la fórmula entre paréntesis</li>
+			</ul>
+			<h4>Pseudo elementos</h4>
+			<p>Son elementos que no existen pero los podemos seleccionar. Van precedidos de los caracteres: “::” y los más habituales son:</p>
+			<ul>
+				<li><strong>::before:</strong> el pseudo-elemento que precede al elemento</li>
+				<li><strong>::after:</strong> el pseudo-elemento contiguo al elemento</li>
+				<li><strong>::first-letter:</strong> la primera letra del elemento</li>
+				<li><strong>::selection:</strong> la selección del usuario</li>
+			</ul>
+		</div>
+	</div>
+
+	<h2>Tipografía</h2>
+	
+	<h3 id="tipografias">Fuentes tipográficas</h3>
+	<div class="flexbox">
+		<div>
+			<p>Existen varias propiedades relacionadas con las fuentes tipográficas. Las más utilizadas son:</p>
+			<ul>
+				<li><strong>font-family:</strong> establece la familia a utilizar (arial, times new roman, courier, …) Existen dos valores por defecto: serif (tipografia con serifa) y sans-serif (tipografía sin serifa)</li>
+				<li><strong>font-size:</strong> establece el tamaño de la fuente. Habitualmente en pixels, em o rem.</li>
+				<li><strong>font-weight:</strong> establece el grosor de la fuente. Los valores habituales son: normal, bold, light.</li>
+				<li><strong>font-style:</strong> nos permite indicar un texto en cursiva o normal con los valores “italic” y “normal”</li>
+				<li><strong>text-align:</strong> define la alineación que queremos en el texto: left, right, center, justify</li>
+				<li><strong>line-height:</strong> define la separación entre líneas, normalmente en px, em o rem.</li>
+			</ul>
+			<p>Las fuentes tipográficas se suelen clasificar en 5 tipos básicos:</p>
+			<ul>
+				<li>Serif</li>
+				<li>Sans-serif</li>
+				<li>Cursive</li>
+				<li>Fantasy</li>
+				<li>Monospace</li>
+			</ul>
+			<h4>Web safe fonts</h4>
+			<p>En web, solo podemos ver correctamente una fuente si esta se encuentra instalada dentro de nuestro ordenador.</p>
+			<p>Si un diseñador web utiliza una fuente que no tenemos instalada, nuestro navegador intentará reemplazarla por otra provocando efectos no deseados.</p>
+			<p>Sólo hay un grupo de fuentes que están instaladas por defecto en todos los sistemas operativos tanto de desktop como mobile. Son las <strong>“Web Safe Fonts”</strong></p>
+			<p>Además, si intentamos usar un grupo de fuente por defecto, es posible que tengamos diferentes resultados según el sistema operativo</p>
+		</div>
+		<div class="example">
+<code>
+h1 {
+	font-family: sans-serif;
+	font-size: 2em;
+	font-weight: bold;
+	font-style: italic;
+	text-align: center;
+	line-height: 1.4rem;
+}
+</code>
+			 <ul>
+			 	<li style="font-family:arial">Arial (sans-serif)</li>
+			 	<li style="font-family:verdana">Verdana (sans-serif)</li>
+			 	<li style="font-family:tahoma">Tahoma (sans-serif)</li>
+			 	<li style="font-family:Trebuchet MS">Trebuchet MS (sans-serif)</li>
+				<li style="font-family:Times New Roman">Times New Roman (serif)</li>
+				<li style="font-family:Georgia">Georgia (serif)</li>
+				<li style="font-family:Garamond">Garamond (serif)</li>
+				<li style="font-family:Courier new">Courier New (monospace)</li>
+				<li style="font-family:Brush Script MT">Brush Script MT (cursive)</li>
+			 </ul>
+			 <ul>
+			 	<li style="font-family:sans-serif">Sans-serif</li>
+			 	<li style="font-family:serif">Serif</li>
+			 	<li style="font-family:monospace">Monospace</li>
+			 	<li style="font-family:fantasy">Fantasy</li>
+			 </ul>
+		</div>
+	</div>
+
+	<h3 id="font-family">font-family</h3>
+	<div class="flexbox">
+		<div>
+			<p>Especificar una fuente tipográfica o un grupo de fuentes en CSS es sencillo. Se utiliza la propiedad ”font-family”.</p>
+			<p>Se pueden especificar varias fuentes, de manera que si no se encuentra la primera, intenta utilizar la siguiente.</p>
+			<p>Se suele poner un grupo de fuentes al final, por si no se ha encontrado ninguna de las fuentes anteriores.</p>
+		</div>
+		<div class="example">
+<code>
+h1 {
+	font-family:serif;
+}
+p {
+	font-family:Helvetica, Arial, sans-serif;
+}
+</code>
+		</div>
+	</div>
+
+	<h2>Shadows, Border-radius, Text-Decoration</h2>
+
+	<h3 id="shadows">Shadows</h3>
+	<div class="flexbox">
+		<div>
+			<p>Podemos aplicar una sombra a una caja con la propiedad box-shadow especificando:</p>
+			<ol>
+				<li>desplazamiento eje x</li>
+				<li>desplazamiento eje y</li>
+				<li>distancia de degradado</li>
+				<li>color de sombra</li>
+			</ol>
+			<p>Podemos también aplicar sombras a textos mediante la propiedad text-shadow especificando los mismos valores</p>
+		</div>
+		<div class="example">
+<code>
+code {
+	box-shadow: 5px 5px 5px rgba(0,0,0,0.2)
+}
+</code>
+<code>
+h1 {
+	text-shadow: 5px 5px 5px rgba(0,0,0,0.2)
+}
+</code>
+		</div>
+	</div>
+
+	<h3 id="border-radius">Border-radius</h3>
+	<div class="flexbox">
+		<div>
+			<p>Podemos redondear las esquinas de nuestras cajas mediante la propiedad border-radius. Se puede especificar las unidades en px o en %, que se calcula a partir de la esquina.</p>
+			<p>Si indicamos que queremos un border-radius de 50%, nos aparecerá un recorte redondeado si la caja era cuadrada o oval si la caja era rectangular</p>
+		</div>
+		<div class="example">
+<code>
+img {
+	border-radius: 50%
+}
+</code>
+		</div>
+	</div>
+
+	<h3 id="text-decoration">Text decoration</h3>
+	<div class="flexbox">
+		<div>
+			<p>Podemos decorar un texto de diferentes formas, por ejemplo subrallándolo o tachandolo</p>
+			<p>Podemos indicar también el estilo de la decoración, el color y el tamaño</p>
+		</div>
+		<div class="example">
+<code>
+span.removed {
+  text-decoration: line-through;
+}
+
+a {
+  text-decoration: none;
+}
+
+h2 {
+  text-decoration: underline wavy blue 5px;
+}
+</code>
+		</div>
+	</div>
+
+	<h2>Flexbox</h2>
+
+	<h3 id="flexbox">Introducción</h3>
+	<div class="flexbox">
+		<div>
+			<p>Flexbox es un método para organizar elementos en una dimensión, sea horizontal o vertical.</p>
+			<p>Para definir los elementos que queremos organizar, los debemos situar en un contenedor que tenga el <strong>display:flex</strong></p>
+			<p>La propiedad <strong>flex-direction</strong> nos indica la dirección que deben situarse los elementos. <strong>row</strong> significa en una sola fila y <strong>column</strong> en una sola columna</p>
+			<p>Además podemos invertir el sentido con los valores <strong>row-reverse</strong> y <strong>column-reverse</strong></p>
+			<p>Podemos indicar el espacio entre elementos mediante la propiedad <strong>gap</strong></p>
+		</div>
+		<div class="example">
+<code>
+&lt;div class="flexbox"&gt;
+	&lt;div&gt;
+		&lt;p&gt;Element&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div&gt;
+		&lt;p&gt;Element&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+
+.flexbox {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+</code>
+		</div>
+	</div>
+
+	<h2>Grids</h2>
+	<h3 id="grids">Introducción</h3>
+	<div class="flexbox">
+		<div>
+			<p>Grids CSS es un método para organizar elementos en dos dimensiones.</p>
+			<p>Para definir los elementos que queremos organizar, los debemos situar en un contenedor que tenga el <strong>display:grid</strong></p>
+			<p>En un grid, debemos definir al menos las columnas que queremos y el ancho de éstas mediante la propedad <strong>grid-template-columns</strong></p>
+			<p>Podemos especificar la situación de un elemento en una fila y una columna concreta mediante las propiedades <strong>grid-column</strong> y <strong>grid-row</strong></p>
+			<p>Podemos indicar el espacio entre elementos mediante la propiedad <strong>gap</strong></p>
+		</div>
+		<div class="example">
+<code>
+&lt;div class="grid"&gt;
+	&lt;div id="element1"&gt;
+		&lt;p&gt;Element&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div id="element2&gt;
+		&lt;p&gt;Element&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+
+.grid {
+  display: grid;
+  grid-template-columns: 100px 100px;
+  gap: 20px;
+}
+
+#element1 {
+	grid-column:1;
+	grid-row:2;
+}
+
+</code>
+		</div>
+	</div>
+
+	<h2>Estilos responsive</h2>
+	<h3 id="breakpoints">Breakpoints</h3>
+	<div class="flexbox">
+		<div>
+			<h4>Mobile portrait</h4>
+			<p>320px - 475px</p>
+		</div>
+		<div>
+			<h4>Mobile landscape</h4>
+			<p>475px - 768px</p>
+		</div>
+		<div>
+			<h4>Tablet portrait</h4>
+			<p>768px - 1024px</p>
+		</div>
+		<div>
+			<h4>Tablet landscappe</h4>
+			<p>1024px</p>
+		</div>
+		<div>
+			<h4>Small screen</h4>
+			<p>1024px - 1440px</p>
+		</div>
+		<div>
+			<h4>Big screen</h4>
+			<p>1440px - ∞ px</p>
+		</div>
+	</div>
+	<h3 id="media-queries">Media queries</h3>
+	<div class="flexbox">
+		<div>
+			<p>Las <strong>media queries</strong> nos permiten ejecutar declaraciones CSS sólo en ciertos tamaños de pantalla</p>
+			<p>Un consejo es plantear todo el CSS como si fuera una pantalla móvil y luego adaptar a pantallas mayores mediante media queries.</p>
+			<p>Son muy útiles para especificar el comportamiento de flexbox y grids en dispositivos móviles y dispositivos desktop</p>
+		</div>
+		<div class="example">
+<code>
+@media query and (min-width:768px) {
+	h1 {
+		color: red;
+	}
+}
+</code>
+		</div>
+	</div>
+
+	<h2>Display, position, overflow, z-index</h2>
+	<h3 id="display">Display</h3>
+	<div class="flexbox">
+		<div>
+			<p>Especifica el comportamiento de un elemento. Los valores más comunes son:</p>
+			<ul>
+				<li><strong>block:</strong> establece que el elemento tiene que comportarse como un bloque. Valor por defecto para la mayoría de elementos (h1-h6, p, div, section, …)</li>
+				<li><strong>inline:</strong> el elemento tiene que comportarse como un elemento en línea. Valor por defecto para elementos como &lt;strong&gt; , &lt;em&gt;, &lt;a&gt; , &lt;span&gt;, &lt;img&gt;, …&lt;/span&gt;</li>
+				<li><strong>flex:</strong> el elemenento debe usar flexbox</li>
+				<li><strong>grid:</strong> el elemento usará grid CSS</li>
+				<li><strong>inline-block:</strong> el elemento estará en línea, pero podremos aplicar propiedades reservadas al modelo de caja</li>
+				<li><strong>none:</strong> el elemento no se visualizará en el navegador</li>
+
+			</ul>		
+		</div>
+		<div class="example">
+<code>
+	img {
+		display:block;
+	}
+	div.hidden {
+		display:none;
+	}
+</code>
+			<p class="tip">Aunque pensemos lo contrario, las imágenes se situan en línea con el resto de elementos. Es por eso que cuando queremos centrar una imagen en una pantalla tenemos muchos problemas. Aplicando que su display sea “block” y definiendo un “margin: auto”, haremos que nuestra imagen quede centrada en el documento.</p>
+		</div>
+	</div>
+
+	<h3 id="position">Position</h3>
+	<div class="flexbox">
+		<div>
+			<p>Establece el método de posicionamiento de elementos por pantalla. Por defecto será “static”, que significa que los elementos se situarán en el orden que aparece en el HTML y respetando el modelo de caja.</p>
+			<p>Otros valores son:</p>
+			<ul>
+				<li>Absolute: relativo a su elemento padre</li>
+				<li>Fixed: relativo a la ventana del navegador</li>
+				<li>Sticky: basado en la posición del scroll</li>
+			</ul>
+		</div>
+		<div class="example">
+<code>
+div#overlay {
+	display: fixed;
+	top:0;
+	left:0;
+}
+</code>
+		</div>
+	</div>
+	
+
+	<h3 id="overflow">Overflow</h3>
+	<div class="flexbox">
+		<div>
+			<p>Establece el comportamiento que debe suceder cuando los elementos rebasan el límite marcado por un contenedor. Sus valores pueden ser:</p>
+			<ul>
+				<li><strong>visible:</strong> los elementos serán visibles aunque rebasen el contenedor. Es el valor por defecto.</li>
+				<li><strong>scroll:</strong> aunque el contenido no rebase el contenedor, aparecerá una barra de scroll</li>
+				<li><strong>hidden:</strong> los contenidos estarán escondidos, pero mediante JS se puede realizar scroll</li>
+				<li><strong>auto:</strong> si el contenido rebasa el contenedor aparecerá una barra de scroll</li>
+				<li><strong>clip:</strong> el contenido estará escondido, y será inaccesible incluso con JS</li>
+			</ul>		
+		</div>
+		<div class="example">
+<code>
+div#mask {
+	overflow: auto;
+}
+</code>
+		</div>
+	</div>
+	
+
+	<h3 id="z-index">z-index</h3>
+	<div class="flexbox">
+		<div>
+			<p>Establece el orden de un elemento respeto el resto. Su valor es un numéro entero que puede ser positivo o negativo.</p>
+		</div>
+		<div class="example">
+<code>
+div#overlay {
+	z-index: 999;
+}
+</code>
+		</div>
+	</div>
+	
+	<h2>Animaciones y transiciones</h2>
+
+	<h3 id="animaciones">Animaciones</h3>
+	<div class="flexbox">
+		<div>
+			<p>Existe la posibilidad de animar un elemento HTML definiendo los frames (pasos) que debe tener una animación. Para ello debemos utilizar la regla @keyframes indicando el nombre de la animación y definiendo las declaraciones CSS en cada uno de los pasos.</p>
+			<p>Una vez definida la regla @keyframes, debemos aplicar la animación a los elementos que deseemos definiendo las propiedades:</p>
+			<ul>
+				<li><strong>animation-name:</strong> el nombre de la animación a aplicar</li>
+				<li><strong>animation-duration:</strong> los segundos que queremos que dure la animación</li>
+			</ul>
+			<p>Existen otros parámetros para manipular las animaciones:</p>
+			<ul>
+				<li><strong>animation-delay:</strong> define el tiempo a esperar en segundos para ejecutar la animación</li>
+				<li><strong>animation-iteration-count:</strong> define las veces que se va a ejecutar la animación (puede ser un número o infinito)</li>
+				<li><strong>animation-direction:</strong> define como queremos que se comporte la animación. Puede ser normal (de 0% a 100%) reverse (de 100% a 0%), alternate (de 0% a 100% y luego a 0%) o alternate-reverse (de 100% a 0% y luego a 100%).</li>
+				<li><strong>animation-timing-funcion:</strong> define la aceleración que queremos de la animación: linear, ease-in, ease-out,..</li>
+				<li><strong>animation-fill-mode:</strong> define el estilo del elemento cuando la animación no se está ejecutando. Recomendación: poner el valor “both” para que se quede en la última posición.</li>
+			</ul>
+		</div>
+		<div class="example">
+<code>
+@keyframes animationName {
+	0% {font-size: 16px;}
+	100% {font-size: 24px;}
+}
+</code>
+<code>
+div {
+	animation-name: animationName;
+	animation-duration: 2s;
+}
+</code>
+		</div>
+	</div>
+
+	<h2 id="transiciones">Transiciones</h2>
+	<div class="flexbox">
+		<div>
+			<p>Las transiciones nos permiten cambiar una propiedad de forma suave, controlando su duración.</p>
+			<p>A diferencia de las animaciones CSS, no pueden crear bucles o movimimientos complejos, pero son muy útiles para animar elementos a partir de la interacción del usuario</p>
+			<p>Tenemos varias propiedades para controlar la transición:</p>
+			<ul>
+				<li><strong>transition-delay:</strong> define el tiempo a esperar en segundos para ejecutar la animación</li>
+				<li><strong>transition-duration:</strong> define la duración de la transición</li>
+				<li><strong>transition-property:</strong> nos permite definir diferentes valores según la propiedad que queremos aplicar la transición </li>
+				<li><strong>transition-timing-funcion:</strong> define la aceleración que queremos de la animación: linear, ease-in, ease-out,..</li>
+			</ul>
+		</div>
+		<div class="example">
+<code>
+div {
+	width: 100%;
+	transition: 2s;
+}
+div:hover {
+	width: 300px;
+}
+</code>
+		</div>
+	</div>
+
+</body>
+</html>
